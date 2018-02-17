@@ -10,4 +10,4 @@ You simply open the file ```index.html``` in a web browser of your choice.
 
 ## How it looks like  
 
-![how the app looks like](img/screenshot.png "Logo Title Text 1")
+![how the app looks like](img/screenshot.png "The app")
