@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Simple Clock</title>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <!-- heading -->
+        <div class="w3-container w3-teal">
+            <h1 class="w3-center">Simple clock</h1>
+        </div>
+        <!-- actual content -->
+        <div class="w3-container w3-center">    
+            <p>This is a simple clock-App. The App uses mainly the following technologies: {{start()}} </p>
+            <ul>
+                <li><a href="https://angular.io/" target="_blank">Angular</a> as JavaScript-framework</li>
+                <li><a href="https://www.w3schools.com/w3css/default.asp" target="_blank">W3.CSS</a> as CSS-framework</li>
+            </ul>
+            <!-- here goes the time -->
+            <div class="w3-panel w3-red">
+                <p class="w3-center" style="font-size:48px;font-weight: bold;">{{time}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- simple controller -->
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            // time expression for the UI
+            $scope.time = "00:00:00";
+            
+            /*
+                This function is the initalize-start 
+            */
+            $scope.start = function () {
+                setInterval($scope.timer,1000);
+            };
+
+            /*
+                This is the actual timer. It updates the time in each second.
+            */
+            $scope.timer = function () {
+
+                var d = new Date();
+                $scope.time = d.toLocaleTimeString();
+                $scope.$apply();
+            };
+        });
+    </script>
+</body>
+
+</html>
